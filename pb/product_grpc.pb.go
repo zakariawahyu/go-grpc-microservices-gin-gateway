@@ -68,7 +68,7 @@ func (c *productServiceClient) DecreaseStock(ctx context.Context, in *DecreaseSt
 	return out, nil
 }
 
-// ProductServiceServer is the server API for ProductService service.
+// ProductServiceServer is the route API for ProductService service.
 // All implementations must embed UnimplementedProductServiceServer
 // for forward compatibility
 type ProductServiceServer interface {
