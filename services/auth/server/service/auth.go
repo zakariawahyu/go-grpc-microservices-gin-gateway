@@ -18,7 +18,7 @@ type AuthService struct {
 func (a *AuthService) Register(ctx context.Context, req *pb.RegisterRequest) (*pb.RegisterResponse, error) {
 	user := entity.User{}
 
-	if err := a.DB.Where(&entity.User{Email: req.GetEmail()}).First(&user).Error; err != nil {
+	if result := a.DB.Where(&entity.User{Email: req.GetEmail()}).First(&user); result.Error == nil {
 		return &pb.RegisterResponse{
 			Status: http.StatusConflict,
 			Error:  "E-Mail already exists",

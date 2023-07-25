@@ -15,6 +15,7 @@ func InitDatabase(cfg *config.Config) *gorm.DB {
 		log.Fatalln(err)
 	}
 
+	db.AutoMigrate(&entity.User{})
 	db.AutoMigrate(&entity.Product{})
 	db.AutoMigrate(&entity.StockDecreaseLog{})
 
